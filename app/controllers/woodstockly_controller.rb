@@ -5,7 +5,8 @@ class WoodstocklyController < ApplicationController
     @reviews.each do |review|
       array_of_ratings << review.stars
     end
-    @average_rating = array_of_ratings.sum / array_of_ratings.size.to_f.round(2)
+    average = array_of_ratings.sum / array_of_ratings.size.to_f
+    @average_rating = average.round(2)
   end
 
   def new
