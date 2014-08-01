@@ -1,0 +1,70 @@
+<style>
+
+.restaurantImage {
+}
+
+.restaurantImage img {
+	height:300px;
+	float:left;
+}
+
+.restaurantInfo {
+	float:right;
+}
+
+.reviewContainer {
+	clear:both;
+	padding-top:30px;
+}
+.review {
+	padding-bottom:20px;
+	border-bottom: 1px solid black;
+}
+
+
+</style>
+
+<h2>
+	Featured Restaurant:
+</h2>
+<h3>
+	The Red Rooster
+</h3>
+<div class="restaurantImage">
+	<img src="http://www.simonpearce.com/media/W1siZiIsIjIwMTMvMDkvMjYvMTcvNTkvMjAvOTQzL2Jhbm5lcl9yZXN0YXVyYW50X2ZhbGxzLmpwZyJdXQ/banner_restaurant_falls.jpg">
+</div>
+<div class="restaurantInfo">
+	<h4>
+		About
+	</h4>
+	<p>
+		<strong>Hours:</strong> 7 a.m. to 12 midnight, 7 days a week
+	</p>
+	<p>
+		<strong>Type of food:</strong> Delicious
+	</p>
+	<p>
+		<strong>Happy Hour?</strong> All day, every day
+	</p>
+	<p>
+		<strong>Average Review</strong>
+		<%= @average_rating %>
+	</p>
+</div>
+<div class="reviewContainer">
+<h4>
+Reviews
+</h4>
+<% @reviews.each do |review| %>
+	<div class="review">
+		<h5>
+			Reviewed by: <%= review.name %>
+		</h5>
+		<%= review.title %> <br />
+		<%= review.description %> <br />
+		Stars: <%= review.stars %>
+	</div>
+<% end %>
+</div>
+
+<a href="new">Been there? Leave a Review</a>
