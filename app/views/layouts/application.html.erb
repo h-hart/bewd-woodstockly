@@ -18,8 +18,15 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
   <%= csrf_meta_tags %>
+  <style>
+  #header {
+  	background-image:url(http://4.bp.blogspot.com/_kHSgSzl1yNc/TEhesVfgU7I/AAAAAAAAAWg/0EfSKroRrBU/s1600/Group+on+Bridge+in+Autum.JPG);
+  	background-size: cover;
+  }
+  </style>
 </head>
 <body class="container">
+	<div id="header">
 	<h1>Woodstockly</h1>
 	<p>The prettiest little town around</p>
 
@@ -30,7 +37,12 @@
 			<a href="">Write a Review</a>
 		</nav>
 	</div>
-
+	</div>
+	<% if flash[:notice] %>
+		<div class='alert alert-info fade in'>
+			<%= flash[:notice] %>
+		</div>
+	<% end %> 
 <%= yield %>
 
 </body>

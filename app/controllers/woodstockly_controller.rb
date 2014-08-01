@@ -16,9 +16,14 @@ class WoodstocklyController < ApplicationController
     review = Review.new(review_params)
 
     if review.save
-      @message = "Review successfully saved"
+      #@message = "Review successfully saved"
+      flash[:notice] = 'YAY!' #flashes a notice at the top of the page
+      redirect_to '/'
     else
-      @message = review.errors.full_messages
+      #@message = review.errors.full_messages
+      flash[:notice] = review.errors.full_messages.to_sentence
+      render :new
+      #render preserves data, redirect_to does not
     end
   end
 
